@@ -1,7 +1,7 @@
 from celery import Celery
 from celery.result import AsyncResult
 from flask import Flask, request, render_template, session, redirect, url_for
-from tasks import send_mail_async
+from tasks import send_mail_async, send_mail_with_chord
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'top-secret!'
@@ -21,8 +21,8 @@ def index():
         return render_template('index.html')
 
     email = request.form['email']
-    async_result = send_mail_async.delay(email)
-    print async_result.id
+    send_mail_with_chord(email)
+    # print async_result.id
 
     return redirect(url_for('index'))
 
