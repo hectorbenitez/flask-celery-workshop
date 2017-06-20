@@ -7,8 +7,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'top-secret!'
 
 # Celery configuration
-app.config['CELERY_BROKER_URL'] = 'amqp://localhost:5672'
-app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
+app.config['CELERY_BROKER_URL'] = 'amqp://nmungaja:oivkBuMaChhuLut4kfuHadHyBtrU9nhi@tiger.cloudamqp.com/nmungaja'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:32782/0'
 
 # Initialize Celery
 celery = Celery(app.name)
