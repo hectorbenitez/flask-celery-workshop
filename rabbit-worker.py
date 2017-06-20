@@ -1,8 +1,7 @@
 import pika
 from mail import send_mail
 
-connection = pika.BlockingConnection(pika.ConnectionParameters(
-		host='localhost'))
+connection = pika.BlockingConnection(pika.URLParameters('amqp://nmungaja:oivkBuMaChhuLut4kfuHadHyBtrU9nhi@tiger.cloudamqp.com/nmungaja'))
 channel = connection.channel()
 
 channel.queue_declare(queue='mails')

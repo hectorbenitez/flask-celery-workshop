@@ -13,7 +13,7 @@ def index():
 
     email = request.form['email']
 
-    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+    connection = pika.BlockingConnection(pika.URLParameters('amqp://nmungaja:oivkBuMaChhuLut4kfuHadHyBtrU9nhi@tiger.cloudamqp.com/nmungaja'))
     channel = connection.channel()
     channel.queue_declare(queue='mails')
     channel.basic_publish(exchange='', routing_key='mails', body=email)
